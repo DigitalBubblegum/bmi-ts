@@ -12,7 +12,11 @@ app.get(`/bmi`,(req,res)=>{
         throw new Error("Malformatted inputs");
     }
     const height:number = Number(userObj.height);
-    const weight:number = Number(userObj.weight); 
+    const weight:number = Number(userObj.weight);
+    if (!height || !weight) {
+        res.json({error: "Malformatted inputs"});
+        throw new Error("Malformatted inputs");
+    } 
     console.log(height,weight)
     const userRes = {
         height: height,
