@@ -8,7 +8,7 @@ app.get('/hello',(_req,res)=>{
 app.get(`/bmi`,(req,res)=>{
     const userObj = req.query
     if (!userObj.height || !userObj.weight || isNaN(Number(userObj.height)) || isNaN(Number(userObj.weight)) ) {
-        res.json({error: "Malformatted inputs"});
+        res.status(400).json({error: "Malformatted inputs"});
         throw new Error("Malformatted inputs");
     }
     const height:number = Number(userObj.height);
