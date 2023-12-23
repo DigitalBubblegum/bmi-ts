@@ -1,6 +1,5 @@
 import express from 'express';
 import { calculateBmi } from './bmiCalculator';
-// import { calculateBmi } from './bmiCalculator';
 const app = express();
 app.get('/hello',(_req,res)=>{
     res.send('Hello Full Stack!')
@@ -8,6 +7,10 @@ app.get('/hello',(_req,res)=>{
 
 app.get(`/bmi`,(req,res)=>{
     const userObj = req.query
+    if (!userObj.height || !userObj.weight) {
+        res.json({error: "Malformatted inputs"});
+        throw new Error("Malformatted inputs");
+    }
     const height:number = Number(userObj.height);
     const weight:number = Number(userObj.weight); 
     console.log(height,weight)
