@@ -14,8 +14,8 @@ const calculateExercises = (dayXhours:number[],target:number):result => {
     },0)/dayXhours.length
     const trainingDays = dayXhours.filter(d => d!==0).length
     const success = average >= target ? true:false
-    let rating = null
-    let ratingDescription = null
+    let rating = 1
+    let ratingDescription = 'null'
     if (average > target) {
         rating = 3
         ratingDescription = 'Excellent Job'
