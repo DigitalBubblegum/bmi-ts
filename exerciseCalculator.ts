@@ -7,7 +7,7 @@ interface result {
     target: number,
     average: number
 }
-const calculateExercises = (dayXhours:number[],target:number):result => {
+export const calculateExercises = (dayXhours:number[],target:number):result => {
     const periodLength = dayXhours.length;
     const average = dayXhours.reduce((acc,curr)=>{
         return acc + curr;
@@ -50,7 +50,7 @@ const calculateExercises = (dayXhours:number[],target:number):result => {
 
 // console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1],2))
 // console.log(calculateExercises([3, 3, 3, 3, 3, 3, 3],2))
-type InputArray = number[];
+export type InputArray = number[];
 const target: number = Number(process.argv[2]);
 const userInput: string[] = process.argv.slice(3);
 const dayXhours: InputArray = userInput.map(Number);
